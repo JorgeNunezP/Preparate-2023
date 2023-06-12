@@ -1,0 +1,129 @@
+<div class="container">
+  <div class="text-center">
+    <h1 style="color: white">Agregar pregunta</h1>
+  </div>
+
+  <form class="form-group" (submit)="saveQuestion()">
+    <div class="form-floating">
+      <select
+        [(ngModel)]="subject"
+        class="form-select"
+        name="subject"
+        id="subject-select"
+        required
+        autofocus
+        (change)="getTopics()"
+      >
+        <option value="spanish">Español</option>
+        <option value="math">Matemáticas</option>
+        <option value="history">Historia</option>
+        <option value="science">Ciencias</option>
+        <option value="english">Ingles</option>
+      </select>
+      <label for="subject-select"
+        >Selecciona la materia a la que se agreagara el subtema:</label
+      >
+    </div>
+
+    <div class="form-floating">
+      <select
+        [(ngModel)]="topicId"
+        class="form-select"
+        name="topic"
+        id="topic-select"
+        required
+      >
+        <option style *ngFor="let topic of topics" value="{{ topic.id }}">
+          {{ topic.topic }}
+        </option>
+      </select>
+      <label for="topic-select"
+        >Selecciona el subtema al que se agreagara la pregunta:</label
+      >
+    </div>
+
+    <div class="form-floating">
+      <input
+        type="text"
+        class="form-control"
+        name="question"
+        id="floatingQuestion"
+        [(ngModel)]="question.question"
+        placeholder="¿?"
+        required
+      />
+      <label for="floatingQuestion">Pregunta</label>
+    </div>
+
+    <div class="form-floating">
+      <input
+        type="text"
+        class="form-control"
+        name="answer1"
+        id="floatingAnswer1"
+        [(ngModel)]="question.answer1"
+        placeholder="Respuesta 1"
+        required
+      />
+      <label for="floatingAnswer1">Respuesta 1</label>
+    </div>
+
+    <div class="form-floating">
+      <input
+        type="text"
+        class="form-control"
+        name="answer2"
+        id="floatingAnswer2"
+        [(ngModel)]="question.answer2"
+        placeholder="Respuesta 2"
+        required
+      />
+      <label for="floatingAnswer2">Respuesta 2</label>
+    </div>
+
+    <div class="form-floating">
+      <input
+        type="text"
+        class="form-control"
+        name="answer3"
+        id="floatingAnswer3"
+        [(ngModel)]="question.answer3"
+        placeholder="Respuesta 3"
+        required
+      />
+      <label for="floatingAnswer3">Respuesta 3</label>
+    </div>
+
+    <div class="form-floating">
+      <input
+        type="text"
+        class="form-control"
+        name="answer4"
+        id="floatingAnswer4"
+        [(ngModel)]="question.answer4"
+        placeholder="Respuesta 4"
+        required
+      />
+      <label for="floatingAnswer4">Respuesta 4</label>
+    </div>
+
+    <div class="form-floating">
+      <input
+        type="number"
+        min="1"
+        max="5"
+        class="form-control"
+        name="correctAnswer"
+        id="floatingCorrectAnswer"
+        [(ngModel)]="question.correctAnswer"
+        placeholder="1"
+        required
+      />
+      <label for="floatingCorrectAnswer">Número de la respuesta correcta</label>
+    </div>
+
+    <div class="float-right">
+      <button class="btn btn-primary" type="submit ">Agregar</button>
+    </div>
+  </form>
+</div>

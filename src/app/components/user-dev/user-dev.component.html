@@ -1,0 +1,54 @@
+<div class="container">
+  <div class="main">
+    <h1>Progreso del usuario</h1>
+
+    <div class="card text-center">
+      <div class="card-header">
+        <ul class="nav nav-tabs card-header-tabs" id="myTab">
+          <li class="nav-item" *ngFor="let subject of subjects">
+            <a
+              href="#{{ subject.subject }}"
+              class="nav-link"
+              data-bs-toggle="tab"
+              >{{ getSubject(subject.subject) }}</a
+            >
+          </li>
+        </ul>
+      </div>
+      <div class="card-body">
+        <div class="tab-content">
+          <div
+            class="tab-pane fade"
+            id="{{ subject.subject }}"
+            *ngFor="let subject of subjects"
+          >
+            <div *ngFor="let subject of subject.topics" (change)="mergeData()">
+              <h3>{{ subject.topicName }}</h3>
+              <div class="progress">
+                <div class="progress-bar bg-info" [ngStyle]="{ width: +'%' }">
+                  %
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="tab-pane fade" id="profile">
+            <h5 class="card-title">Profile tab content</h5>
+            <p class="card-text">
+              Here is some example text to make up the tab's content. Replace it
+              with your own text anytime.
+            </p>
+            <a href="#" class="btn btn-primary">Go somewhere</a>
+          </div>
+          <div class="tab-pane fade" id="messages">
+            <h5 class="card-title">Messages tab content</h5>
+            <p class="card-text">
+              Here is some example text to make up the tab's content. Replace it
+              with your own text anytime.
+            </p>
+            <a href="#" class="btn btn-primary">Go somewhere</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

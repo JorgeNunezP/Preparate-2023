@@ -1,0 +1,24 @@
+body {
+  min-height: 100vh;
+  min-height: -webkit-fill-available;
+  min-width: 576px;
+  --bs-body-color: #212529;
+}
+
+div.form-floating {
+  margin-top: 5px;
+}
+div.float-right {
+  margin-top: 5px;
+}
+
+.container {
+  max-width: 1920px;
+  height: 100%;
+  padding: 0;
+}
+
+div #exampleImage {
+  margin-top: 5px;
+  border-radius: 5px;
+}

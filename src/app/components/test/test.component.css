@@ -1,0 +1,48 @@
+.checkbox-xl .custom-control-label::before,
+.container {
+  max-width: 1920px;
+  height: 100%;
+  padding: 0;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  color: white;
+  background-color: #2c2e30;
+  margin-top: 10px;
+}
+
+.checkbox-xl .custom-control-label::after {
+  top: 1.2rem;
+  width: 1.85rem;
+  height: 1.85rem;
+}
+
+.checkbox-xl .custom-control-label {
+  padding-top: 10px;
+  padding-left: 10px;
+}
+
+#subject-select {
+  height: 40px;
+  line-height: auto;
+  border-radius: 5px;
+  margin-bottom: 5px;
+}
+
+#subject-select {
+  height: 40px;
+  line-height: auto;
+  border-radius: 5px;
+  margin-bottom: 5px;
+}
+
+#question-container {
+  height: -webkit-fill-available;
+  max-height: auto;
+  overflow-y: hidden;
+  text-align: center;
+  background-color: #2c2e30;
+  color: white;
+  border-radius: 5px;
+  padding-bottom: 10px;
+}

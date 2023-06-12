@@ -1,0 +1,223 @@
+<div class="container">
+  <div id="colSidebar" class="col">
+    <div
+      id="sidebarId"
+      class="sidebar pt-3 flex-shrink-0 p-3 bg-dark text-white"
+    >
+      <a
+        class="d-flex align-items-center pb-3 mb-3 link-light text-decoration-none border-bottom"
+      >
+        <span class="fs-5 fw-semibold">Materias</span>
+      </a>
+      <ul class="list-unstyled ps-0">
+        <li class="mb-1">
+          <button
+            (click)="getTopics('spanish')"
+            class="btn btn-toggle d-inline-flex align-items-center rounded border-0 collapsed"
+            data-bs-toggle="collapse"
+            data-bs-target="#spanish-collapse"
+            aria-expanded="false"
+          >
+            Español
+          </button>
+          <div
+            class="collapse"
+            id="spanish-collapse"
+            data-bs-parent="#sidebarId"
+          >
+            <ul class="btn-toggle-nav list-unstyled fw-normal pb-1 small">
+              <li>
+                <a
+                  (click)="showTopicList()"
+                  class="link-light d-inline-flex text-decoration-none rounded"
+                  >Lista de temas</a
+                >
+              </li>
+              <li>
+                <a
+                  (click)="showLastSeen()"
+                  class="link-light d-inline-flex text-decoration-none rounded"
+                  >Ultimo tema visto</a
+                >
+              </li>
+            </ul>
+          </div>
+        </li>
+        <li class="mb-1">
+          <button
+            (click)="getTopics('math')"
+            class="btn btn-outline-light btn-toggle d-inline-flex align-items-center rounded border-0 collapsed"
+            data-bs-toggle="collapse"
+            data-bs-target="#math-collapse"
+            aria-expanded="false"
+          >
+            Matematicas
+          </button>
+          <div class="collapse" id="math-collapse" data-bs-parent="#sidebarId">
+            <ul class="btn-toggle-nav list-unstyled fw-normal pb-1 small">
+              <li>
+                <a
+                  (click)="showTopicList()"
+                  class="link-light d-inline-flex text-decoration-none rounded"
+                  >Lista de temas</a
+                >
+              </li>
+              <li>
+                <a
+                  (click)="showLastSeen()"
+                  class="link-light d-inline-flex text-decoration-none rounded"
+                  >Ultimo tema visto</a
+                >
+              </li>
+            </ul>
+          </div>
+        </li>
+
+        <li class="mb-1">
+          <button
+            (click)="getTopics('science')"
+            class="btn btn-outline-light btn-toggle d-inline-flex align-items-center rounded border-0 collapsed"
+            data-bs-toggle="collapse"
+            data-bs-target="#science-collapse"
+            aria-expanded="false"
+          >
+            Ciencias
+          </button>
+          <div
+            class="collapse"
+            id="science-collapse"
+            data-bs-parent="#sidebarId"
+          >
+            <ul class="btn-toggle-nav list-unstyled fw-normal pb-1 small">
+              <li>
+                <a
+                  (click)="showTopicList()"
+                  class="link-light d-inline-flex text-decoration-none rounded"
+                  >Lista de temas</a
+                >
+              </li>
+              <li>
+                <a
+                  (click)="showLastSeen()"
+                  class="link-light d-inline-flex text-decoration-none rounded"
+                  >Ultimo tema visto</a
+                >
+              </li>
+            </ul>
+          </div>
+        </li>
+
+        <li class="mb-1">
+          <button
+            (click)="getTopics('history')"
+            class="btn btn-outline-light btn-toggle d-inline-flex align-items-center rounded border-0 collapsed"
+            data-bs-toggle="collapse"
+            data-bs-target="#history-collapse"
+            aria-expanded="false"
+          >
+            Historia
+          </button>
+          <div
+            class="collapse"
+            id="history-collapse"
+            data-bs-parent="#sidebarId"
+          >
+            <ul class="btn-toggle-nav list-unstyled fw-normal pb-1 small">
+              <li>
+                <a
+                  (click)="showTopicList()"
+                  class="link-light d-inline-flex text-decoration-none rounded"
+                  >Lista de temas</a
+                >
+              </li>
+              <li>
+                <a
+                  (click)="showLastSeen()"
+                  class="link-light d-inline-flex text-decoration-none rounded"
+                  >Ultimo tema visto</a
+                >
+              </li>
+            </ul>
+          </div>
+        </li>
+        <li class="mb-1">
+          <button
+            (click)="getTopics('english')"
+            class="btn btn-outline-light btn-toggle d-inline-flex align-items-center rounded border-0 collapsed"
+            data-bs-toggle="collapse"
+            data-bs-target="#english-collapse"
+            aria-expanded="false"
+          >
+            Inglés
+          </button>
+          <div
+            class="collapse"
+            id="english-collapse"
+            data-bs-parent="#sidebarId"
+          >
+            <ul class="btn-toggle-nav list-unstyled fw-normal pb-1 small">
+              <li>
+                <a
+                  (click)="showTopicList()"
+                  class="link-light d-inline-flex text-decoration-none rounded"
+                  >Lista de temas</a
+                >
+              </li>
+              <li>
+                <a
+                  (click)="showLastSeen()"
+                  class="link-light d-inline-flex text-decoration-none rounded"
+                  >Ultimo tema visto</a
+                >
+              </li>
+            </ul>
+          </div>
+        </li>
+      </ul>
+    </div>
+  </div>
+  <!--end sidebar-->
+  <div class="col">
+    <main class="col-md-9 col-lg-12 px-md-4">
+      <h2 style="padding: 10px" id="subject"></h2>
+      <ng-container *ngIf="getShowTopicList(); else lastTopic">
+        <div>
+          <ul
+            id="list"
+            *ngFor="let topics of topics"
+            class="btn-toggle-nav list-unstyled fw-normal"
+          >
+            <li>
+              <a
+                (click)="showSelectedTopic(topics.id)"
+                class="link-light d-inline-flex text-decoration-none rounded"
+                >{{ topics.topic }}</a
+              >
+            </li>
+          </ul>
+        </div>
+      </ng-container>
+      <ng-template #lastTopic>
+        <div>
+          <h3 style="padding: 10px; padding-top: 0" id="topic">
+            {{ topicData.topic }}
+          </h3>
+          <p style="padding: 10px; padding-top: 0" id="info">
+            {{ topicData.info }}
+          </p>
+        </div>
+        <div>
+          <ng-container *ngIf="showButtons">
+            <ng-container *ngIf="prevEnable">
+              <a (click)="previusTopic()" class="previous">&laquo; Anterior</a>
+            </ng-container>
+
+            <ng-container *ngIf="nextEnable">
+              <a (click)="nextTopic()" class="next">Siguiente &raquo;</a>
+            </ng-container>
+          </ng-container>
+        </div>
+      </ng-template>
+    </main>
+  </div>
+</div>

@@ -1,0 +1,65 @@
+<div class="container">
+  <div class="text-center text-white">
+    <h1>Examen de conocimientos generales</h1>
+  </div>
+  <ng-container *ngIf="!start; else test">
+    <ng-container *ngIf="!seenEmpaty; else empaty">
+      <pre>
+        En este apartado se generara un examen de todas las materias y temas que haz visto en la seccion de materias. 
+        Por favor selecciona una materia y pulsa el boton <b>"iniciar examen"</b> cuando estes listo para comenzar.
+      </pre>
+      <label for="subject-select">Selecciona una materia:</label>
+      <br />
+      <form class="form-group" (ngSubmit)="startTest()">
+        <select
+          name="subject"
+          id="subject-select"
+          [(ngModel)]="subject"
+          required
+        >
+          <option *ngFor="let subject of seenSubjects" value="{{ subject }}">
+            {{ getSubject(subject) }}
+          </option>
+        </select>
+        <br />
+        <button class="btn btn-lg btn-primary" type="submit">
+          Iniciar Examen
+        </button>
+      </form>
+    </ng-container>
+    <ng-template #empaty>
+      <pre>
+        En este apartado se generara un examen de todas las materias y temas que haz visto en la seccion de materias. 
+        No haz visto ningun tema de alguna de nuestras materias. 
+      </pre>
+    </ng-template>
+  </ng-container>
+  <ng-template #test>
+    <div id="question-container" class="">
+      <!Panel con la pregunta>
+      <div>
+        <div class="avance">
+          <h4>Pregunta de {{ getSubject(subject) }}</h4>
+        </div>
+        <div>
+          <h3>{{ question }}</h3>
+        </div>
+        <!Respuestas>
+        <div class="d-grid gap-2 col-4 mx-auto">
+          <button (click)="next(1)" class="btn btn-primary" type="button">
+            {{ answer1 }}
+          </button>
+          <button (click)="next(2)" class="btn btn-primary" type="button">
+            {{ answer2 }}
+          </button>
+          <button (click)="next(3)" class="btn btn-primary" type="button">
+            {{ answer3 }}
+          </button>
+          <button (click)="next(4)" class="btn btn-primary" type="button">
+            {{ answer4 }}
+          </button>
+        </div>
+      </div>
+    </div>
+  </ng-template>
+</div>

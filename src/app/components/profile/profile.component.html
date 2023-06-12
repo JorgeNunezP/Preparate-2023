@@ -1,0 +1,79 @@
+<br />
+<br />
+<div class="row">
+  <div class="col-md-3 mx-auto">
+    <body class="text-center">
+      <main class="m-auto">
+        <form class="form-group" (ngSubmit)="changePass()">
+          <h1 class="h3 mb-3 fw-normal">Información de usuario</h1>
+
+          <img
+            class="mb-4"
+            alt=""
+            width="100"
+            height="100"
+            [src]="user.photo"
+          />
+
+          <div class="form-floating">
+            <input
+              type="text"
+              name="name"
+              class="form-control"
+              placeholder="Nombre "
+              id="floatingName"
+              required
+              autofocus
+              [(ngModel)]="user.name"
+              disabled
+            />
+            <label for="floatingName">Nombre</label>
+          </div>
+          <div class="form-floating">
+            <input
+              type="email"
+              class="form-control"
+              name="email"
+              id="floatingEmail"
+              placeholder="name@example.com"
+              required
+              [(ngModel)]="user.email"
+              email="true"
+              disabled
+            />
+            <label for="floatingEmail">Correo Electronico</label>
+          </div>
+          <div class="form-floating">
+            <input
+              type="password"
+              class="form-control"
+              name="password"
+              id="floatingPassword"
+              placeholder="Password"
+              required
+              [(ngModel)]="user.password"
+            />
+            <label for="floatingPassword">Contraseña</label>
+          </div>
+          <div class="form-floating">
+            <input
+              type="password"
+              class="form-control"
+              name="password2"
+              id="floatingPassword2"
+              placeholder="Password"
+              required
+              [(ngModel)]="user.password2"
+            />
+            <label for="floatingPassword2">Confirmar Contraseña</label>
+          </div>
+          <br />
+          <button class="btn btn-lg btn-primary" type="submit">
+            Cambiar Contraseña
+          </button>
+          <p class="mt-5 mb-3 text-muted">&copy; 2023</p>
+        </form>
+      </main>
+    </body>
+  </div>
+</div>

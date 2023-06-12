@@ -1,0 +1,38 @@
+nav {
+  max-height: 80px;
+  min-width: 767px;
+  width: 100%;
+  position: sticky;
+  top: 0px;
+  max-width: 1920px;
+  background-color: #2c2e30;
+  border-radius: 5px;
+}
+
+.container {
+  max-width: 1920px;
+  display: relative;
+  flex-wrap: wrap;
+  padding: 0;
+
+  height: 100%;
+}
+
+.appContainer {
+  height: auto;
+}
+
+#NavbarMenu {
+  margin-left: 25px;
+}
+
+#NavbarMenu li:hover,
+#NavbarMenu li:focus {
+  background-color: #28463d;
+  border-radius: 5px;
+}
+
+.dropdown a:hover {
+  background-color: #28463d;
+  border-radius: 5px;
+}

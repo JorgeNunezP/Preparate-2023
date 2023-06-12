@@ -1,0 +1,52 @@
+<br />
+<br />
+<div class="row">
+  <div class="col-md-3 mx-auto">
+    <body class="text-center">
+      <main class="m-auto">
+        <form class="form-group" (ngSubmit)="login()">
+          <img
+            class="mb-4"
+            src="https://dewey.tailorbrands.com/production/brand_version_mockup_image/746/4149847746_b81880c6-f079-49ed-bfc2-6c8d1559a968.png?cb=1605732579"
+            alt=""
+            width="200"
+            height="57"
+          />
+          <h1 class="h3 mb-3 fw-normal" style="color: white">Iniciar Sesión</h1>
+
+          <div class="form-floating">
+            <input
+              type="email"
+              class="form-control"
+              name="email"
+              id="floatingEmail"
+              placeholder="name@example.com"
+              required
+              autofocus
+              [(ngModel)]="user.email"
+              email="true"
+            />
+            <label for="floatingEmail">Correo Electronico</label>
+          </div>
+          <div class="form-floating">
+            <input
+              type="password"
+              class="form-control"
+              name="password"
+              id="floatingPassword"
+              placeholder="Password"
+              required
+              [(ngModel)]="user.password"
+            />
+            <label for="floatingPassword">Contraseña</label>
+          </div>
+          <br />
+          <button class="btn btn-lg btn-primary" type="submit">
+            Iniciar Sesión
+          </button>
+          <p class="mt-5 mb-3 text-muted">&copy; 2023</p>
+        </form>
+      </main>
+    </body>
+  </div>
+</div>

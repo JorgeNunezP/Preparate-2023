@@ -1,0 +1,13 @@
+body {
+  min-height: 100vh;
+  min-height: -webkit-fill-available;
+  min-width: 576px;
+  --bs-body-color: #212529;
+}
+
+div.form-floating {
+  margin-top: 5px;
+}
+div.float-right {
+  margin-top: 5px;
+}

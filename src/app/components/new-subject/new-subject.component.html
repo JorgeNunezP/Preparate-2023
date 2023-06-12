@@ -1,0 +1,86 @@
+<div class="container">
+  <div class="text-center">
+    <h1 style="color: white">Agregar Subtema</h1>
+  </div>
+
+  <div class="col-md-7 mx-auto">
+    <form class="form-group" (submit)="saveTopic()">
+      <div class="form-floating">
+        <select
+          [(ngModel)]="subject"
+          class="form-select"
+          name="subject"
+          id="subject-select"
+          required
+          autofocus
+        >
+          <option value="spanish" selected>Español</option>
+          <option value="math">Matemáticas</option>
+          <option value="history">Historia</option>
+          <option value="science">Ciencias</option>
+          <option value="english">Ingles</option>
+        </select>
+        <label for="subject-select"
+          >Selecciona la materia a la que se agreagara el subtema:</label
+        >
+      </div>
+
+      <div class="form-floating">
+        <input
+          type="text"
+          class="form-control"
+          name="topic"
+          id="floatingTopic"
+          placeholder="subtema"
+          [(ngModel)]="topic.topic"
+          required
+        />
+        <label for="floatingTopic">Título del subtema</label>
+      </div>
+
+      <div class="form-floating">
+        <textarea
+          class="form-control"
+          id="floatingInfo"
+          rows="10"
+          name="info"
+          placeholder="Info"
+          [(ngModel)]="topic.info"
+          required
+          style="height: 200px"
+        ></textarea>
+
+        <label for="floatingInfo">Información del subtema</label>
+      </div>
+
+      <div class="form-check">
+        <input
+          class="form-check-input"
+          type="checkbox"
+          id="addExample"
+          required
+          (change)="addExample()"
+        />
+        <label style="color: white" for="addExample">
+          Agregar imagen de ejemplo
+        </label>
+      </div>
+
+      <ng-container *ngIf="addExampleImage">
+        <form>
+          <div class="form-group">
+            <input
+              [(ngModel)]="topic.urlExample"
+              type="file"
+              class="form-control-file"
+              id="exampleImage"
+            />
+          </div>
+        </form>
+      </ng-container>
+      <div class="float-right">
+        <button class="btn btn-primary" type="submit ">Agregar</button>
+      </div>
+    </form>
+  </div>
+</div>

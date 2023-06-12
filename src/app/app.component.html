@@ -1,0 +1,87 @@
+<!-- Navbar -->
+
+<div class="container">
+  <nav class="p-3 sticky-top">
+    <div
+      id="topNavbar"
+      class="d-flex align-items-center justify-content-center justify-content-lg-start"
+    >
+      <a
+        href="/"
+        class="d-flex align-items-center mb-2 mb-lg-0 text-white text-decoration-none"
+      >
+        <img
+          id="AppLogo"
+          class="bi me-2"
+          width="150"
+          alt="App Logo"
+          src="https://dewey.tailorbrands.com/production/brand_version_mockup_image/746/4149847746_b81880c6-f079-49ed-bfc2-6c8d1559a968.png?cb=1605732579"
+        />
+      </a>
+
+      <ul
+        id="NavbarMenu"
+        class="nav col-8 col-lg-auto me-lg-auto mb-2 justify-content-center"
+      >
+        <li>
+          <a href="" class="nav-link px-2 text-white">Inicio</a>
+        </li>
+        <ng-container *ngIf="loginService.loggedIn()">
+          <li>
+            <a href="subject" class="nav-link px-2 text-white">Materias</a>
+          </li>
+          <li>
+            <a href="user-dev" class="nav-link px-2 text-white">Progreso</a>
+          </li>
+          <li><a href="test" class="nav-link px-2 text-white">Examen</a></li>
+        </ng-container>
+      </ul>
+      <ng-container *ngIf="!loggedIn(); else logged">
+        <div class="text-end align-right">
+          <button
+            type="button"
+            (click)="goToPage('login')"
+            class="btn btn-outline-light me-2"
+          >
+            Iniciar Sesión
+          </button>
+
+          <button
+            type="button"
+            (click)="goToPage('register')"
+            class="btn btn-warning me-2"
+          >
+            Registrarse
+          </button>
+        </div>
+      </ng-container>
+      <ng-template #logged>
+        <div class="dropdown text-end">
+          <a
+            href="#"
+            class="d-block link-light text-decoration-none dropdown-toggle"
+            data-bs-toggle="dropdown"
+            aria-expanded="false"
+          >
+            <img
+              [src]="user.photo"
+              alt="mdo"
+              width="32"
+              height="32"
+              class="rounded-circle"
+            />
+          </a>
+          <ul class="dropdown-menu text-small">
+            <li><a class="dropdown-item" href="profile">Profile</a></li>
+            <li><hr class="dropdown-divider" /></li>
+            <li>
+              <a class="dropdown-item" (click)="logout()">Cerrar sesion</a>
+            </li>
+          </ul>
+        </div>
+      </ng-template>
+    </div>
+  </nav>
+
+  <div class="appContainer"><router-outlet> </router-outlet></div>
+</div>

@@ -1,0 +1,19 @@
+<div class="container">
+  <div class="main">
+    <h1>Resultados del examen de {{ subject }}</h1>
+
+    <div class="panel-body">
+      <h5>Porcentaje de aciertos</h5>
+      <circle-progress
+        [percent]="result"
+        [radius]="200"
+        [outerStrokeWidth]="32"
+        [innerStrokeWidth]="16"
+        [outerStrokeColor]="'#0074B7'"
+        [innerStrokeColor]="'#7EC8E3'"
+        [animation]="true"
+        [animationDuration]="300"
+      ></circle-progress>
+    </div>
+  </div>
+</div>
